@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sabana-users-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/lara44/sabana.devops.users.argocd'
+    targetRevision: main
+    path: helm/sabana-users-chart
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: sabana-users
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
