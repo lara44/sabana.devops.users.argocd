@@ -53,7 +53,7 @@ securityContext: {}
 service:
   type: NodePort
   port: 8080 # Puerto interno del servicio
-  nodePort: 30081 # Agregar esta línea para especificar el puerto del nodo
+  nodePort: 30082 # Agregar esta línea para especificar el puerto del nodo
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
