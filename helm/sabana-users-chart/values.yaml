@@ -5,7 +5,7 @@ replicaCount: 1
 
 image:
   repository: luisrojasdev/sabana-devops-users
-  pullPolicy: IfNotPresent
+  pullPolicy: Always  # <-- cambia de IfNotPresent a Always
   tag: "latest"
 
 imagePullSecrets: []
