@@ -26,11 +26,11 @@ podSecurityContext: {}
 securityContext: {}
 
 # Variables de entorno para forzar HTTP y evitar HTTPS redirect automático
-env:
-  - name: ASPNETCORE_ENVIRONMENT
-    value: "Production"
-  - name: ASPNETCORE_URLS
-    value: "http://+:8080"
+# env:
+#   - name: ASPNETCORE_ENVIRONMENT
+#     value: "Production"
+#   - name: ASPNETCORE_URLS
+#     value: "http://+:8080"
 
 service:
   type: NodePort
