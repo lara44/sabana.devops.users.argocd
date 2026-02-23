@@ -1,7 +1,5 @@
 apiVersion: apps/v1
 kind: Deployment
-env:
-  {{- toYaml .Values.env | nindent 12 }}
 metadata:
   name: {{ include "sabana-users-chart.fullname" . }}
   labels:
@@ -35,8 +33,11 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
+      
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
