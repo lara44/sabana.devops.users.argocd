@@ -122,18 +122,19 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-# This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   httpGet:
-    path: /health  # Tu endpoint de .NET
-    port: 8080     # USA EL NÚMERO, NO EL ALIAS "http"
-    initialDelaySeconds: 15 # Dale un poco más de margen por ser .NET 10
-    
+    path: /health
+    port: 8080
+  initialDelaySeconds: 30 # Fuera de httpGet
+  periodSeconds: 10
+
 readinessProbe:
   httpGet:
-    path: /health       # O /health, ambos funcionan según tus pruebas locales
-    port: 8080     # USA EL NÚMERO
-  initialDelaySeconds: 5
+    path: /health
+    port: 8080
+  initialDelaySeconds: 20 # Fuera de httpGet
+  periodSeconds: 10
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
