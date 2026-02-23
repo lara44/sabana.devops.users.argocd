@@ -131,7 +131,7 @@ livenessProbe:
     
 readinessProbe:
   httpGet:
-    path: /        # O /health, ambos funcionan según tus pruebas locales
+    path: /health       # O /health, ambos funcionan según tus pruebas locales
     port: 8080     # USA EL NÚMERO
   initialDelaySeconds: 5
 
